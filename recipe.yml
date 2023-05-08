@@ -29,6 +29,7 @@ scripts:
     - autorun.sh
     # Manually listed scripts.
     # - example_pre.sh
+    - 1password.sh
 
   # "Post" scripts run at the end of the build process.
   post:
@@ -65,6 +66,8 @@ rpm:
     # Add your own below:
     # Example:
     # - tilix
+    - 1password
+    - 1password-cli
     - fish
     - fprintd-clients
     - fprintd-clients-pam
