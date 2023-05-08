@@ -1,11 +1,11 @@
 # This file can only be edited inside the uBlue image's git repository.
 
 # The image will be at "ghcr.io/yourusername/name".
-name: startingpoint
+name: sericea-main
 
 # The native container image to build on top of.
 # Warning: Non-uBlue images might not work properly, due to missing components.
-base-image: ghcr.io/ublue-os/silverblue-main
+base-image: ghcr.io/ublue-os/sericea-main
 
 # What Fedora version to use. Use an explicit version or `latest`.
 # If you use `latest`, you will be automatically updated to the next major
@@ -29,6 +29,8 @@ scripts:
     - autorun.sh
     # Manually listed scripts.
     # - example_pre.sh
+    - 1password.sh
+    - chezmoi.sh
 
   # "Post" scripts run at the end of the build process.
   post:
@@ -46,38 +48,39 @@ rpm:
   # so that your repos automatically use your image's actual Fedora version,
   # which greatly simplifies future maintenance of your custom recipe.
   repos:
-    # Example (which also demonstrates version number expansion):
-    # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%FEDORA_VERSION%/atim-starship-fedora-%FEDORA_VERSION%.repo
+    - https://cli.github.com/packages/rpm/gh-cli.repo
+    - https://copr.fedorainfracloud.org/coprs/alternateved/keyd/repo/fedora-%FEDORA_VERSION%/alternateved-keyd-fedora-%FEDORA_VERSION%.repo
+    - https://copr.fedorainfracloud.org/coprs/tigro/python-validity/repo/fedora-%FEDORA_VERSION%/python-validity-fedora-%FEDORA_VERSION%.repo
 
   # These RPMs will be installed from your enabled repositories (Fedora's own
   # repos, extra "repos" you've added, etc). The installation is automatically
   # performed via rpm-ostree during the image build, and will be pre-installed
   # at the "system level" in the final image.
   install:
-    # Needed for yafti (the first boot installer). Remove if you're not using yafti.
-    - python3-pip
-    # GNOME's GTK4 theme, Libadwaita. Already included in Silverblue, but not
-    # other spins. You can remove if you aren't using yafti, but many native
-    # apps and binaries require it, so it's a good idea to always include it
-    # if you ever download or compile any custom software on your machine.
+    - fish
+    - fontawesome-fonts
+    - fprintd-clients
+    - fprintd-clients-pam
+    - gh
+    - jetbrains-mono-fonts
+    - keyd
+    - kitty
     - libadwaita
-    # Add your own below:
-    # Example:
-    # - tilix
+    - open-fprintd
+    - python3-validity
 
   # These RPMs will be removed from the system image. This step happens during
   # image build, BEFORE installing custom RPMs (from the "rpm.install" category).
-  remove:
-    # Remove the native firefox (from Fedora) in favor of the Flatpak.
-    - firefox
-    - firefox-langpacks
+  remove: 
+    - fprintd
+    - fprintd-pam
 
 # Configuration for the "first boot" experience, which is available after login.
 firstboot:
   # Whether to embed "yafti" into the OS image and configure it to autostart,
   # which is the preferred uBlue "first boot" GUI. Set this to "false" if you've
   # decided to use a different solution instead.
-  yafti: true
+  yafti: false
 
   # These Flatpaks will be suggested for install after user login, via the yafti
   # "first boot" GUI. Everything below will be merged into the "yafti.yml" config
@@ -86,6 +89,4 @@ firstboot:
   # Alternatively, if you've disabled "yafti", you can still install these via
   # the "just setup-flatpaks" command from our "custom.just" template file.
   # This is just an example selection:
-  flatpaks:
-    - io.github.celluloid_player.Celluloid
-    - org.kde.krita
+  flatpaks: []
