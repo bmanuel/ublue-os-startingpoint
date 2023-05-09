@@ -30,6 +30,7 @@ scripts:
     # Manually listed scripts.
     # - example_pre.sh
     - 1password.sh
+    - chezmoi.sh
 
   # "Post" scripts run at the end of the build process.
   post:
