@@ -74,6 +74,7 @@ rpm:
     - fprintd-clients
     - fprintd-clients-pam
     - gh
+    - jetbrains-mono-fonts
     - kitty
     - open-fprintd
     - python3-pip
