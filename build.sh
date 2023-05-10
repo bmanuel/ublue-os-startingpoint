@@ -8,9 +8,6 @@ for script in $(echo -e "$buildscripts"); do
 done
 echo "---"
 
-# remove the default firefox (from fedora) in favor of the flatpak
-# rpm-ostree override remove firefox firefox-langpacks
-
 repos=$(yq '.extrarepos[]' </usr/etc/ublue-recipe.yml)
 if [[ -n "$repos" ]]; then
     echo "-- Adding repos defined in recipe.yml --"
@@ -19,6 +16,10 @@ if [[ -n "$repos" ]]; then
     done
     echo "---"
 fi
+
+# remove the default firefox (from fedora) in favor of the flatpak
+# rpm-ostree override remove firefox firefox-langpacks
+rpm-ostree override remove fprintd-pam fprintd
 
 echo "-- Installing RPMs defined in recipe.yml --"
 rpm_packages=$(yq '.rpms[]' </usr/etc/ublue-recipe.yml)
