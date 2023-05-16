@@ -57,7 +57,6 @@ rpm:
   # performed via rpm-ostree during the image build, and will be pre-installed
   # at the "system level" in the final image.
   install:
-    - 1password-cli
     - fish
     - fontawesome-fonts
     - fprintd-clients
@@ -68,7 +67,6 @@ rpm:
     - kitty
     - libadwaita
     - open-fprintd
-    - python3-pip
     - python3-validity
 
   # These RPMs will be removed from the system image. This step happens during
