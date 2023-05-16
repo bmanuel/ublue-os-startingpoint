@@ -72,6 +72,7 @@ rpm:
     - 1password
     - 1password-cli
     - fish
+    - fontawesome-fonts
     - fprintd-clients
     - fprintd-clients-pam
     - gh
@@ -100,6 +101,4 @@ firstboot:
   # Alternatively, if you've disabled "yafti", you can still install these via
   # the "just setup-flatpaks" command from our "custom.just" template file.
   # This is just an example selection:
-  flatpaks:
-    - io.github.celluloid_player.Celluloid
-    - org.kde.krita
+  flatpaks: []
