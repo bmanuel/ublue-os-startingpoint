@@ -50,7 +50,6 @@ rpm:
   repos:
     - https://cli.github.com/packages/rpm/gh-cli.repo
     - https://copr.fedorainfracloud.org/coprs/alternateved/keyd/repo/fedora-%FEDORA_VERSION%/alternateved-keyd-fedora-%FEDORA_VERSION%.repo
-    - https://copr.fedorainfracloud.org/coprs/tigro/python-validity/repo/fedora-%FEDORA_VERSION%/python-validity-fedora-%FEDORA_VERSION%.repo
 
   # These RPMs will be installed from your enabled repositories (Fedora's own
   # repos, extra "repos" you've added, etc). The installation is automatically
@@ -59,21 +58,15 @@ rpm:
   install:
     - fish
     - fontawesome-fonts
-    - fprintd-clients
-    - fprintd-clients-pam
     - gh
     - jetbrains-mono-fonts
     - keyd
     - kitty
     - libadwaita
-    - open-fprintd
-    - python3-validity
 
   # These RPMs will be removed from the system image. This step happens during
   # image build, BEFORE installing custom RPMs (from the "rpm.install" category).
-  remove: 
-    - fprintd
-    - fprintd-pam
+  remove: []
 
 # Configuration for the "first boot" experience, which is available after login.
 firstboot:
