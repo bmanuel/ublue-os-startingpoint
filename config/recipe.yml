@@ -20,17 +20,25 @@ modules:
                   # should be added into /usr/etc/ as that is the proper "distro"
                   # config directory on ostree. Read more in the files module's README
 
+  - type: script
+    scripts:
+      - 1password.sh
+      - chezmoi.sh
+
   - type: rpm-ostree
     repos:
       - https://cli.github.com/packages/rpm/gh-cli.repo
       - https://copr.fedorainfracloud.org/coprs/alternateved/keyd/repo/fedora-%OS_VERSION%/alternateved-keyd-fedora-%OS_VERSION%.repo
     install:
+      - 1password-cli
       - fish
       - fontawesome-fonts
       - gh
       - keyd
       - kitty
       - libadwaita
+    optfix:
+      - 1password
     remove: []
 
   - type: bling # configure what to pull in from ublue-os/bling
@@ -60,5 +68,3 @@ modules:
     scripts:
       # this sets up the proper policy & signing files for signed images to work
       - signing.sh
-      - 1password.sh
-      - chezmoi.sh
