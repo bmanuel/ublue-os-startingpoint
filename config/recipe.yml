@@ -53,6 +53,8 @@ modules:
         - FiraCode
         - JetBrainsMono
         - NerdFontsSymbolsOnly
+      google-fonts:
+        - Noto Sans
 
   - type: script
     scripts:
