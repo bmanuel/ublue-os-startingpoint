@@ -30,6 +30,7 @@ modules:
       - https://cli.github.com/packages/rpm/gh-cli.repo
       - https://copr.fedorainfracloud.org/coprs/alternateved/keyd/repo/fedora-%OS_VERSION%/alternateved-keyd-fedora-%OS_VERSION%.repo
     install:
+      - 1password
       - 1password-cli
       - fish
       - fontawesome-fonts
