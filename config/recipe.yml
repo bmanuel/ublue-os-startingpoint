@@ -23,7 +23,7 @@ modules:
   - type: rpm-ostree
     repos:
       - https://cli.github.com/packages/rpm/gh-cli.repo
-      - https://copr.fedorainfracloud.org/coprs/alternateved/keyd/repo/fedora-%FEDORA_VERSION%/alternateved-keyd-fedora-%FEDORA_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/alternateved/keyd/repo/fedora-%OS_VERSION%/alternateved-keyd-fedora-%OS_VERSION%.repo
     install:
       - fish
       - fontawesome-fonts
