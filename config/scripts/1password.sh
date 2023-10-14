@@ -11,3 +11,16 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/1password.asc
 EOF
+
+
+if [ $(getent group onepassword) ]; then
+    : # no-op
+else
+    groupadd onepassword
+fi
+
+if [ $(getent group onepassword-cli) ]; then
+    : # no-op
+else
+    groupadd onepassword-cli
+fi
