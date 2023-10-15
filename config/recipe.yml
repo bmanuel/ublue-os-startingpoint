@@ -12,13 +12,14 @@ image-version: 38 # latest is also supported if you want new updates ASAP
 modules:
   - type: files
     files:
-      - usr: /usr # copy static configurations
-                  #
-                  # copies config/files/usr into your image's /usr
-                  #
-                  # configuration you wish to end up in /etc/ on the booted system
-                  # should be added into /usr/etc/ as that is the proper "distro"
-                  # config directory on ostree. Read more in the files module's README
+      - usr:
+          /usr # copy static configurations
+          #
+          # copies config/files/usr into your image's /usr
+          #
+          # configuration you wish to end up in /etc/ on the booted system
+          # should be added into /usr/etc/ as that is the proper "distro"
+          # config directory on ostree. Read more in the files module's README
 
   - type: script
     scripts:
@@ -67,6 +68,9 @@ modules:
     system:
       enabled:
         - keyd.service
+    user:
+      enabled:
+        - kanshi.service
 
   - type: script
     scripts:
