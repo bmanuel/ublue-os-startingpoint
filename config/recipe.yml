@@ -35,15 +35,17 @@ modules:
     install:
       - fish
       - fontawesome-fonts
+      - fprintd-clients
+      - fprintd-clients-pam
       - gh
       - keyd
       - libadwaita
+      - open-fprintd
+      - python3-validity
       - starship
-    remove: []
-
-  - type: script
-    scripts:
-      - fingerprint.sh
+    remove:
+      - fprintd
+      - fprintd-pam
 
   - type: bling # configure what to pull in from ublue-os/bling
     install:

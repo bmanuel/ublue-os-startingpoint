@@ -2,5 +2,8 @@
 
 set -oue pipefail
 
-rpm-ostree override remove fprintd --install open-fprintd
-rpm-ostree install python3-validity fprintd-clients
+rpm-ostree override remove fprintd fprintd-pam \
+	--install open-fprintd \
+	--install python3-validity \
+	--install fprintd-clients \
+	--install fprintd-clients-pam
