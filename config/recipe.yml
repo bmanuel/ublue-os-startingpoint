@@ -24,6 +24,7 @@ modules:
   - type: bling # configure what to pull in from ublue-os/bling
     install:
       - justfiles # add "!include /usr/share/ublue-os/just/bling.just"
+      - nix-installer
       - laptop
 
   - type: script
