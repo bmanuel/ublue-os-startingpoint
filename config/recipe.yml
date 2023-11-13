@@ -26,10 +26,10 @@ modules:
       - justfiles # add "!include /usr/share/ublue-os/just/bling.just"
       - nix-installer
       - laptop
+      - 1password
 
   - type: script
     scripts:
-      - 1password.sh
       - chezmoi.sh
 
   - type: rpm-ostree
