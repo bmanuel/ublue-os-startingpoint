@@ -37,21 +37,21 @@ modules:
       - https://cli.github.com/packages/rpm/gh-cli.repo
       - https://copr.fedorainfracloud.org/coprs/alternateved/keyd/repo/fedora-%OS_VERSION%/alternateved-keyd-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-      - https://copr.fedorainfracloud.org/coprs/bmanuel/python-validity/repo/fedora-%OS_VERSION%/bmanuel-python-validity-fedora-%OS_VERSION%.repo
+      # - https://copr.fedorainfracloud.org/coprs/bmanuel/python-validity/repo/fedora-%OS_VERSION%/bmanuel-python-validity-fedora-%OS_VERSION%.repo
     install:
       - fish
       - fontawesome-fonts
-      - fprintd-clients
-      - fprintd-clients-pam
+      # - fprintd-clients
+      # - fprintd-clients-pam
       - gh
       - keyd
       - libadwaita
-      - open-fprintd
-      - python3-validity
+      # - open-fprintd
+      # - python3-validity
       - starship
     remove:
-      - fprintd
-      - fprintd-pam
+      # - fprintd
+      # - fprintd-pam
 
   - type: fonts
     fonts:
@@ -66,16 +66,16 @@ modules:
     system:
       enabled:
         - keyd.service
-        - open-fprintd-resume.service
-        - open-fprintd-suspend.service
-        - open-fprintd.service
-        - python3-validity.service
+        # - open-fprintd-resume.service
+        # - open-fprintd-suspend.service
+        # - open-fprintd.service
+        # - python3-validity.service
     user:
       enabled:
         - kanshi.service
 
   - type: script
     scripts:
-      - enable-fingerprint.sh
+      # - enable-fingerprint.sh
       # this sets up the proper policy & signing files for signed images to work
       - signing.sh
